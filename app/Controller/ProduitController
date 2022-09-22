@@ -1,0 +1,22 @@
+<?php
+namespace App\Controller;
+
+use App\Model\ProduitModel;
+use App\Service\Form;
+use App\Service\Validation;
+use App\Weblitzer\Controller;
+
+class AbonneController extends Controller{
+    public function listing()
+    {
+        $produits= ProduitModel::all();
+        $count = ProduitModel::count();
+        $this->render('app.produit.listing', [
+            'produits' => $produits,
+            'count' => $count
+        ]);
+        
+    }
+
+    
+}
